@@ -1,7 +1,7 @@
 # API quản lý sách
 
 Project cá nhân về api quản lý thông tin sách \
-Link demo qua Swagger: https://books-api-hihz.onrender.com/swagger-ui/index.html  \
+Link demo qua Swagger: https://books-api-hihz.onrender.com/swagger-ui/index.html  
 
 ## Các chức năng chính
 
