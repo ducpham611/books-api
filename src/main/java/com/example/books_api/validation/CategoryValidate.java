@@ -21,6 +21,10 @@ public class CategoryValidate {
             log.info("CategoryId cannot be null or empty");
             return false;
         }
+        if (StringUtils.isBlank(categoryUpdateRequest.getCategoryName())) {
+            log.info("CategoryName cannot be null or empty");
+            return false;
+        }
         log.info("Validate successfully");
         return true;
     }
