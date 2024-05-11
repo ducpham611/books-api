@@ -3,7 +3,7 @@ package com.example.books_api.service.impl;
 import com.example.books_api.bean.AuthorCreateRequest;
 import com.example.books_api.bean.AuthorUpdateRequest;
 import com.example.books_api.bean.BaseResponse;
-import com.example.books_api.bean.BaseResponseCode;
+import com.example.books_api.constant.BaseResponseCode;
 import com.example.books_api.entity.Author;
 import com.example.books_api.repository.AuthorRepository;
 import com.example.books_api.service.AuthorService;
@@ -74,16 +74,21 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public BaseResponse updateAuthor(AuthorUpdateRequest authorUpdateRequest) {
         if (!AuthorValidate.validateAuthorUpdateRequest(authorUpdateRequest)) {
-            log.info("Invalid create author request");
+            log.info("Invalid update author request");
             return BaseResponse.of(BaseResponseCode.INVALID_REQUEST);
         }
-        Author newAuthorData = Author.builder()
-                .authorName(authorUpdateRequest.getAuthorName())
-                .gender(authorUpdateRequest.getGender())
-                .bornAddress(authorUpdateRequest.getBornAddress())
-                .age(authorUpdateRequest.getAge())
-                .build();
-        authorRepository.save(newAuthorData);
+        Optional<Author> authorDataOptional = authorRepository.findById(authorUpdateRequest.getId());
+        if (authorDataOptional.isEmpty()) {
+            log.info("Author data not found");
+            return BaseResponse.of(BaseResponseCode.AUTHOR_NOT_EXIST);
+        }
+        Author authorDataUpdate = authorDataOptional.get();
+        log.info("Author data found: {}", authorDataUpdate);
+        authorDataUpdate.setAuthorName(authorUpdateRequest.getAuthorName());
+        authorDataUpdate.setGender(authorUpdateRequest.getGender());
+        authorDataUpdate.setBornAddress(authorUpdateRequest.getBornAddress());
+        authorDataUpdate.setAge(authorUpdateRequest.getAge());
+        authorRepository.save(authorDataUpdate);
         log.info("Update author data successfully");
         return BaseResponse.ok();
     }

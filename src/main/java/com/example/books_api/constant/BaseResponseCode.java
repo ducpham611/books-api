@@ -1,10 +1,12 @@
-package com.example.books_api.bean;
+package com.example.books_api.constant;
 
 public enum BaseResponseCode {
     SUCCESS("00", "Success!"),
     INVALID_REQUEST("01", "Invalid request!"),
     AUTHOR_NOT_EXIST("02", "Author not exist!"),
-    AUTHOR_EXIST("03", "Author existed");
+    AUTHOR_EXIST("03", "Author existed"),
+    CATEGORY_NOT_EXIST("10", "Category not exist!"),
+    CATEGORY_EXIST("11", "Category existed");
     private final String code;
     private final String message;
 

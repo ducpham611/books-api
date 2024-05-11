@@ -1,6 +1,7 @@
 package com.example.books_api.controller;
 
 import com.example.books_api.bean.*;
+import com.example.books_api.constant.BaseResponseCode;
 import com.example.books_api.entity.Author;
 import com.example.books_api.service.AuthorService;
 import lombok.AllArgsConstructor;
@@ -36,7 +37,7 @@ public class AuthorController {
         if (null == authorData) {
             return BaseResponse.of(BaseResponseCode.AUTHOR_NOT_EXIST);
         }
-        return BaseResponse.of(BaseResponseCode.SUCCESS, authorService.findAuthorById(authorSearchRequest.getId()));
+        return BaseResponse.of(BaseResponseCode.SUCCESS, authorData);
     }
 
     @PostMapping(value = "delete-by-id")

@@ -7,6 +7,6 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class CategoryRequest {
-    private String name;
+public class CategoryCreateRequest {
+    private String categoryName;
 }

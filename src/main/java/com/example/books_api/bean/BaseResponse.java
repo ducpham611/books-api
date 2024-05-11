@@ -1,5 +1,6 @@
 package com.example.books_api.bean;
 
+import com.example.books_api.constant.BaseResponseCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Data;
