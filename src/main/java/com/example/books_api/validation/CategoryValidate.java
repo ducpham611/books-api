@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CategoryValidate {
     public static boolean validateCreateRequest(CategoryCreateRequest categoryCreateRequest) {
         if (StringUtils.isBlank(categoryCreateRequest.getCategoryName())) {
-            log.info("CategoryName cannot be null or empty");
+            log.info("CategoryName cannot be null or empty or blank");
             return false;
         }
         log.info("Validate successfully");
@@ -18,11 +18,11 @@ public class CategoryValidate {
 
     public static boolean validateUpdateRequest(CategoryUpdateRequest categoryUpdateRequest) {
         if (null == categoryUpdateRequest.getCategoryId()) {
-            log.info("CategoryId cannot be null or empty");
+            log.info("CategoryId cannot be null or empty or blank");
             return false;
         }
         if (StringUtils.isBlank(categoryUpdateRequest.getCategoryName())) {
-            log.info("CategoryName cannot be null or empty");
+            log.info("CategoryName cannot be null or empty or blank");
             return false;
         }
         log.info("Validate successfully");

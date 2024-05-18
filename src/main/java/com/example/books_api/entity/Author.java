@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -13,7 +14,7 @@ import java.io.Serializable;
 @Table(name = "author", uniqueConstraints = {@UniqueConstraint(columnNames = {"author_id"})})
 public class Author implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "author_id")
     private Integer authorId;
     @Column(name = "author_name")

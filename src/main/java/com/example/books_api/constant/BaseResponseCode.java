@@ -6,7 +6,10 @@ public enum BaseResponseCode {
     AUTHOR_NOT_EXIST("02", "Author not exist!"),
     AUTHOR_EXIST("03", "Author existed"),
     CATEGORY_NOT_EXIST("10", "Category not exist!"),
-    CATEGORY_EXIST("11", "Category existed");
+    CATEGORY_EXIST("11", "Category existed"),
+    BOOK_NOT_EXIST("20", "Book not exist!"),
+    BOOK_EXIST("21", "Book existed");
+
     private final String code;
     private final String message;
 

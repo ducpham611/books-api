@@ -8,6 +8,7 @@ import com.example.books_api.entity.Author;
 import com.example.books_api.repository.AuthorRepository;
 import com.example.books_api.service.AuthorService;
 import com.example.books_api.validation.AuthorValidate;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -72,6 +73,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    @Transactional
     public BaseResponse updateAuthor(AuthorUpdateRequest authorUpdateRequest) {
         if (!AuthorValidate.validateAuthorUpdateRequest(authorUpdateRequest)) {
             log.info("Invalid update author request");

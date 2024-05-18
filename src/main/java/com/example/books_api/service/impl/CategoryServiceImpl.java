@@ -8,6 +8,7 @@ import com.example.books_api.entity.Category;
 import com.example.books_api.repository.CategoryRepository;
 import com.example.books_api.service.CategoryService;
 import com.example.books_api.validation.CategoryValidate;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -68,6 +69,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Transactional
     public BaseResponse updateCategory(CategoryUpdateRequest categoryUpdateRequest) {
         if (!CategoryValidate.validateUpdateRequest(categoryUpdateRequest)) {
             log.info("Invalid create author request");
